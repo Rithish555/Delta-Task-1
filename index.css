@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(16, 16, 78);
+}
+
+.gamename{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 50px;
+    color: aliceblue;
+}
+
+.timers{
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 200px;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(7, 189, 189);
+}
+
+.timersbox{
+    background-color: rgba(0, 0, 0, 0.662);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.time{
+    text-align: center;
+    margin-top: 5px;
+    color: white;
+}
+
+.turns{
+    text-align: center;
+    margin-top: 80px;
+    font-size: 30px;
+    color:rgb(7, 189, 189) ;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.box{
+    text-align: center;
+    background-color: bisque;
+    height: 500px;
+    width: 500px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+}
+
+.points{
+    color: aliceblue;
+    row-gap: 10px;
+}
+
+.subpoints{
+    margin:40px 0;
+    font-size: xx-large;
+}
+
+.subpoints1{
+    margin-left: 110px;
+}
+
+.pointsnum{
+    color: rgb(7, 189, 189);
+}
