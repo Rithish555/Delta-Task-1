@@ -84,6 +84,11 @@ body{
     border-radius: 50px;
 }
 
+.dots:hover{
+    background-color:rgba(0, 0, 0, 0.644) ;
+    cursor: pointer;
+}
+
 .row{
     display: flex;
     margin-top: 40px;
@@ -167,4 +172,49 @@ body{
 .row4set2{
     display: flex;
     margin-inline: 100px;
+}
+.line1{
+    position: absolute;
+    height: 3px;
+    width: 200px;
+    background-color: black;
+    left: 375px;
+    top: 310px;
+    transform: translateX(-50%);
+}
+.line2{
+    position: absolute;
+    height: 3px;
+    width: 62px;
+    background-color: black;
+    left: 106px;
+    top: 310px;
+    transform: translateX(-50%);
+}
+.line3{
+    position: absolute;
+    height: 3px;
+    width: 50px;
+    background-color: black;
+    left: 180px;
+    top: 310px;
+    transform: translateX(-50%);
+}
+.line1{
+    position: absolute;
+    height: 3px;
+    width: 200px;
+    background-color: black;
+    left: 375px;
+    top: 310px;
+    transform: translateX(-50%);
+}
+.line1{
+    position: absolute;
+    height: 3px;
+    width: 200px;
+    background-color: black;
+    left: 375px;
+    top: 310px;
+    transform: translateX(-50%);
 }
