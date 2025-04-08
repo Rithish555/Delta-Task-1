@@ -15,10 +15,6 @@ body{
 }
 
 .timers{
-    display: flex;
-    justify-content: space-between;
-    margin-inline: 200px;
-    margin-top: 50px;
     font-size: 20px;
     font-weight: 600;
     color: rgb(7, 189, 189);
@@ -28,6 +24,8 @@ body{
     background-color: rgba(0, 0, 0, 0.662);
     padding: 8px;
     border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .time{
@@ -47,16 +45,17 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .box{
     text-align: center;
     background-color: bisque;
-    height: 500px;
-    width: 500px;
-    margin-bottom: 100px;
-    margin-right: 100px;
+    height: 600px;
+    width: 750px;
+    margin-bottom: 60px;
+    margin-inline: 100px;
+    display: flex;
 }
 
 .points{
@@ -69,10 +68,16 @@ body{
     font-size: xx-large;
 }
 
-.subpoints1{
-    margin-left: 110px;
-}
-
 .pointsnum{
     color: rgb(7, 189, 189);
+}
+
+.dots{
+    background-color: rgba(0, 0, 0, 0.737);
+    border-style: solid;
+    border-width: 5px;
+    border-color: red;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
 }
