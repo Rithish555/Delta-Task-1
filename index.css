@@ -56,6 +56,8 @@ body{
     margin-bottom: 60px;
     margin-inline: 100px;
     display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .points{
@@ -80,4 +82,89 @@ body{
     height: 30px;
     width: 30px;
     border-radius: 50px;
+}
+
+.row{
+    display: flex;
+    margin-top: 40px;
+}
+
+.row1{
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+}
+.row7{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+}
+
+.row2{
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+}
+
+.row6{
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    transform: translateX(-50%);
+}
+.row3{
+    position: absolute;
+    left: 50%;
+    top: 160px;
+    transform: translateX(-50%);
+}
+
+.row5{
+    position: absolute;
+    left: 50%;
+    bottom: 180px;
+    transform: translateX(-50%);
+}
+.row4{
+    position: absolute;
+    left: 50%;
+    top: 250px;
+    transform: translateX(-50%);
+}
+
+.dots1{
+    margin-inline: 140px;
+}
+.dots2{
+    margin-inline: 80px;
+}
+.dots3{
+    margin-inline: 30px;
+}
+.dots41{
+    margin-left: 60px;
+}
+.dots42{
+    margin-right: 60px;
+}
+.dots5{
+    margin-inline: 30px;
+}
+.dots6{
+    margin-inline: 80px;
+}
+.dots7{
+    margin-inline: 140px;
+}
+
+.row4set1{
+    display: flex;
+    margin-inline: 100px;
+}
+.row4set2{
+    display: flex;
+    margin-inline: 100px;
 }
