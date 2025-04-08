@@ -26,6 +26,7 @@ body{
     border-radius: 10px;
     margin-top: 40px;
     margin-bottom: 40px;
+    box-shadow: 5px 5px 10px 5px black ;
 }
 
 .time{
@@ -50,7 +51,7 @@ body{
 
 .box{
     text-align: center;
-    background-color: bisque;
+    background-color: rgba(0, 0, 0, 0.553);
     height: 600px;
     width: 750px;
     margin-bottom: 60px;
@@ -58,6 +59,7 @@ body{
     display: flex;
     flex-direction: column;
     position: relative;
+    box-shadow: 5px 5px 10px 5px black ;
 }
 
 .points{
@@ -75,10 +77,10 @@ body{
 }
 
 .dots{
-    background-color: rgba(0, 0, 0, 0.737);
+    background-color: aliceblue;
     border-style: solid;
     border-width: 5px;
-    border-color: red;
+    border-color: rgb(7, 189, 189);
     height: 30px;
     width: 30px;
     border-radius: 50px;
@@ -173,15 +175,15 @@ body{
     display: flex;
     margin-inline: 100px;
 }
-
-
+.lines{
+    background-color: aliceblue;
+}
 
 
 .line1{
     position: absolute;
     height: 3px;
     width: 252px;
-    background-color: black;
     left: 7px;
     top: 186px;
     transform: rotate(125deg);
@@ -190,7 +192,6 @@ body{
     position: absolute;
     height: 3px;
     width: 280px;
-    background-color: black;
     left: 235px;
     top: 70px;
 }
@@ -198,7 +199,6 @@ body{
     position: absolute;
     height: 3px;
     width: 252px;
-    background-color: black;
     right: 7px;
     top: 186px;
     transform: rotate(55deg);
@@ -208,7 +208,6 @@ body{
     position: absolute;
     height: 3px;
     width: 252px;
-    background-color: black;
     right: 6px;
     bottom: 168px;
     transform: rotate(125deg);
@@ -217,7 +216,6 @@ body{
     position: absolute;
     height: 3px;
     width: 280px;
-    background-color: black;
     right: 235px;
     bottom: 45px;
 }
@@ -225,7 +223,6 @@ body{
     position: absolute;
     height: 3px;
     width: 252px;
-    background-color: black;
     left: 6px;
     bottom: 167px;
     transform: rotate(55deg);
@@ -234,7 +231,6 @@ body{
     position: absolute;
     height: 3px;
     width: 170px;
-    background-color: black;
     left: 128px;
     top: 221px;
     transform: rotate(125deg);
@@ -243,7 +239,6 @@ body{
     position: absolute;
     height: 3px;
     width: 165px;
-    background-color: black;
     left: 293px;
     top: 140px;
 }
@@ -251,7 +246,6 @@ body{
     position: absolute;
     height: 3px;
     width: 170px;
-    background-color: black;
     right: 130px;
     top: 223px;
     transform: rotate(55deg);
@@ -260,7 +254,6 @@ body{
     position: absolute;
     height: 3px;
     width: 170px;
-    background-color: black;
     right: 130px;
     bottom: 203px;
     transform: rotate(125deg);
@@ -269,7 +262,6 @@ body{
     position: absolute;
     height: 3px;
     width: 166px;
-    background-color: black;
     right: 292px;
     bottom: 115px;
 }
@@ -277,7 +269,6 @@ body{
     position: absolute;
     height: 3px;
     width: 170px;
-    background-color: black;
     left: 130px;
     bottom: 203px;
     transform: rotate(55deg);
@@ -286,7 +277,6 @@ body{
     position: absolute;
     height: 3px;
     width: 78px;
-    background-color: black;
     left: 250px;
     top: 262px;
     transform: rotate(125deg);
@@ -295,7 +285,6 @@ body{
     position: absolute;
     height: 3px;
     width: 66px;
-    background-color: black;
     left: 342px;
     top: 220px;
     
@@ -304,7 +293,6 @@ body{
     position: absolute;
     height: 3px;
     width: 78px;
-    background-color: black;
     right: 250px;
     top: 262px;
     transform: rotate(55deg);
@@ -313,7 +301,6 @@ body{
     position: absolute;
     height: 3px;
     width: 78px;
-    background-color: black;
     right: 250px;
     bottom: 244px;
     transform: rotate(125deg);
@@ -322,7 +309,6 @@ body{
     position: absolute;
     height: 3px;
     width: 66px;
-    background-color: black;
     left: 342px;
     bottom: 195px;
     
@@ -331,7 +317,6 @@ body{
     position: absolute;
     height: 3px;
     width: 78px;
-    background-color: black;
     left: 250px;
     bottom: 244px;
     transform: rotate(55deg);
@@ -340,7 +325,6 @@ body{
     position: absolute;
     height: 3px;
     width: 62px;
-    background-color: black;
     left: 76px;
     top: 310px;
 }
@@ -348,7 +332,6 @@ body{
     position: absolute;
     height: 3px;
     width: 58px;
-    background-color: black;
     right: 215px;
     top: 105px;
     transform: rotate(125deg);
@@ -357,7 +340,6 @@ body{
     position: absolute;
     height: 3px;
     width: 58px;
-    background-color: black;
     right: 215px;
     bottom: 85px;
     transform: rotate(55deg);
@@ -367,7 +349,6 @@ body{
     position: absolute;
     height: 3px;
     width: 58px;
-    background-color: black;
     left: 270px;
     top: 178px;
     transform: rotate(55deg);
@@ -376,7 +357,6 @@ body{
     position: absolute;
     height: 3px;
     width: 65px;
-    background-color: black;
     right: 172px;
     top: 310px;
 }
@@ -384,7 +364,6 @@ body{
     position: absolute;
     height: 3px;
     width: 58px;
-    background-color: black;
     left: 270px;
     bottom: 160px;
     transform: rotate(125deg);
