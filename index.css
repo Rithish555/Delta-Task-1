@@ -173,48 +173,219 @@ body{
     display: flex;
     margin-inline: 100px;
 }
+
+
+
+
 .line1{
     position: absolute;
     height: 3px;
-    width: 200px;
+    width: 252px;
     background-color: black;
-    left: 375px;
-    top: 310px;
-    transform: translateX(-50%);
+    left: 7px;
+    top: 186px;
+    transform: rotate(125deg);
 }
 .line2{
     position: absolute;
     height: 3px;
-    width: 62px;
+    width: 280px;
     background-color: black;
-    left: 106px;
-    top: 310px;
-    transform: translateX(-50%);
+    left: 235px;
+    top: 70px;
 }
 .line3{
     position: absolute;
     height: 3px;
-    width: 50px;
+    width: 252px;
     background-color: black;
-    left: 180px;
-    top: 310px;
-    transform: translateX(-50%);
+    right: 7px;
+    top: 186px;
+    transform: rotate(55deg);
 }
-.line1{
+
+.line4{
     position: absolute;
     height: 3px;
-    width: 200px;
+    width: 252px;
     background-color: black;
-    left: 375px;
-    top: 310px;
-    transform: translateX(-50%);
+    right: 6px;
+    bottom: 168px;
+    transform: rotate(125deg);
 }
-.line1{
+.line5{
     position: absolute;
     height: 3px;
-    width: 200px;
+    width: 280px;
     background-color: black;
-    left: 375px;
+    right: 235px;
+    bottom: 45px;
+}
+.line6{
+    position: absolute;
+    height: 3px;
+    width: 252px;
+    background-color: black;
+    left: 6px;
+    bottom: 167px;
+    transform: rotate(55deg);
+}
+.line7{
+    position: absolute;
+    height: 3px;
+    width: 170px;
+    background-color: black;
+    left: 128px;
+    top: 221px;
+    transform: rotate(125deg);
+}
+.line8{
+    position: absolute;
+    height: 3px;
+    width: 165px;
+    background-color: black;
+    left: 293px;
+    top: 140px;
+}
+.line9{
+    position: absolute;
+    height: 3px;
+    width: 170px;
+    background-color: black;
+    right: 130px;
+    top: 223px;
+    transform: rotate(55deg);
+}
+.line10{
+    position: absolute;
+    height: 3px;
+    width: 170px;
+    background-color: black;
+    right: 130px;
+    bottom: 203px;
+    transform: rotate(125deg);
+}
+.line11{
+    position: absolute;
+    height: 3px;
+    width: 166px;
+    background-color: black;
+    right: 292px;
+    bottom: 115px;
+}
+.line12{
+    position: absolute;
+    height: 3px;
+    width: 170px;
+    background-color: black;
+    left: 130px;
+    bottom: 203px;
+    transform: rotate(55deg);
+} 
+.line13{
+    position: absolute;
+    height: 3px;
+    width: 78px;
+    background-color: black;
+    left: 250px;
+    top: 262px;
+    transform: rotate(125deg);
+}
+.line14{
+    position: absolute;
+    height: 3px;
+    width: 66px;
+    background-color: black;
+    left: 342px;
+    top: 220px;
+    
+}
+.line15{
+    position: absolute;
+    height: 3px;
+    width: 78px;
+    background-color: black;
+    right: 250px;
+    top: 262px;
+    transform: rotate(55deg);
+}
+.line16{
+    position: absolute;
+    height: 3px;
+    width: 78px;
+    background-color: black;
+    right: 250px;
+    bottom: 244px;
+    transform: rotate(125deg);
+}
+.line17{
+    position: absolute;
+    height: 3px;
+    width: 66px;
+    background-color: black;
+    left: 342px;
+    bottom: 195px;
+    
+}
+.line18{
+    position: absolute;
+    height: 3px;
+    width: 78px;
+    background-color: black;
+    left: 250px;
+    bottom: 244px;
+    transform: rotate(55deg);
+}
+.line19{
+    position: absolute;
+    height: 3px;
+    width: 62px;
+    background-color: black;
+    left: 76px;
     top: 310px;
-    transform: translateX(-50%);
+}
+.line20{
+    position: absolute;
+    height: 3px;
+    width: 58px;
+    background-color: black;
+    right: 215px;
+    top: 105px;
+    transform: rotate(125deg);
+}
+.line21{
+    position: absolute;
+    height: 3px;
+    width: 58px;
+    background-color: black;
+    right: 215px;
+    bottom: 85px;
+    transform: rotate(55deg);
+}
+
+.line22{
+    position: absolute;
+    height: 3px;
+    width: 58px;
+    background-color: black;
+    left: 270px;
+    top: 178px;
+    transform: rotate(55deg);
+}
+.line23{
+    position: absolute;
+    height: 3px;
+    width: 65px;
+    background-color: black;
+    right: 172px;
+    top: 310px;
+}
+.line24{
+    position: absolute;
+    height: 3px;
+    width: 58px;
+    background-color: black;
+    left: 270px;
+    bottom: 160px;
+    transform: rotate(125deg);
 }
