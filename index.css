@@ -177,11 +177,11 @@ body{
 }
 .lines{
     background-color: aliceblue;
+    position: absolute;
 }
 
 
 .line1{
-    position: absolute;
     height: 3px;
     width: 248px;
     left: 30px;
@@ -189,14 +189,12 @@ body{
     transform: rotate(124deg);
 }
 .line2{
-    position: absolute;
     height: 3px;
     width: 240px;
     left: 255px;
     top: 70px;
 }
 .line3{
-    position: absolute;
     height: 3px;
     width: 248px;
     right: 30px;
@@ -205,7 +203,6 @@ body{
 }
 
 .line4{
-    position: absolute;
     height: 3px;
     width: 248px;
     right: 30px;
@@ -213,14 +210,12 @@ body{
     transform: rotate(124deg);
 }
 .line5{
-    position: absolute;
     height: 3px;
     width: 248px;
     right: 252px;
     bottom: 45px;
 }
 .line6{
-    position: absolute;
     height: 3px;
     width: 248px;
     left: 34px;
@@ -228,7 +223,6 @@ body{
     transform: rotate(56deg);
 }
 .line7{
-    position: absolute;
     height: 3px;
     width: 166px;
     left: 134px;
@@ -236,14 +230,12 @@ body{
     transform: rotate(124deg);
 }
 .line8{
-    position: absolute;
     height: 3px;
     width: 165px;
     left: 293px;
     top: 140px;
 }
 .line9{
-    position: absolute;
     height: 3px;
     width: 166px;
     right: 134px;
@@ -251,7 +243,6 @@ body{
     transform: rotate(56deg);
 }
 .line10{
-    position: absolute;
     height: 3px;
     width: 162px;
     right: 138px;
@@ -259,14 +250,12 @@ body{
     transform: rotate(124deg);
 }
 .line11{
-    position: absolute;
     height: 3px;
     width: 166px;
     right: 292px;
     bottom: 115px;
 }
 .line12{
-    position: absolute;
     height: 3px;
     width: 164px;
     left: 138px;
@@ -274,7 +263,6 @@ body{
     transform: rotate(56deg);
 } 
 .line13{
-    position: absolute;
     height: 3px;
     width: 78px;
     left: 250px;
@@ -282,7 +270,6 @@ body{
     transform: rotate(125deg);
 }
 .line14{
-    position: absolute;
     height: 3px;
     width: 66px;
     left: 342px;
@@ -290,7 +277,6 @@ body{
     
 }
 .line15{
-    position: absolute;
     height: 3px;
     width: 78px;
     right: 250px;
@@ -298,7 +284,6 @@ body{
     transform: rotate(55deg);
 }
 .line16{
-    position: absolute;
     height: 3px;
     width: 78px;
     right: 250px;
@@ -306,7 +291,6 @@ body{
     transform: rotate(125deg);
 }
 .line17{
-    position: absolute;
     height: 3px;
     width: 66px;
     left: 342px;
@@ -314,7 +298,6 @@ body{
     
 }
 .line18{
-    position: absolute;
     height: 3px;
     width: 78px;
     left: 250px;
@@ -322,14 +305,12 @@ body{
     transform: rotate(55deg);
 }
 .line19{
-    position: absolute;
     height: 3px;
     width: 62px;
     left: 98px;
     top: 310px;
 }
 .line20{
-    position: absolute;
     height: 3px;
     width: 42px;
     right: 232px;
@@ -337,7 +318,6 @@ body{
     transform: rotate(124deg);
 }
 .line21{
-    position: absolute;
     height: 3px;
     width: 44px;
     right: 230px;
@@ -346,7 +326,6 @@ body{
 }
 
 .line22{
-    position: absolute;
     height: 3px;
     width: 58px;
     left: 270px;
@@ -354,17 +333,142 @@ body{
     transform: rotate(55deg);
 }
 .line23{
-    position: absolute;
     height: 3px;
     width: 50px;
     right: 196px;
     top: 310px;
 }
 .line24{
-    position: absolute;
     height: 3px;
     width: 58px;
     left: 270px;
     bottom: 160px;
     transform: rotate(125deg);
+}
+
+.edgenums{
+    color: aliceblue;
+    font-size: larger;
+    font-weight: 900;
+}
+
+.num1{
+    position: absolute;
+    left: 130px;
+    top: 170px; 
+}
+.num2{
+    position: absolute;
+    left: 370px;
+    top: 50px; 
+}
+.num3{
+    position: absolute;
+    right: 130px;
+    top: 170px; 
+}
+.num4{
+    position: absolute;
+    right: 130px;
+    bottom: 160px; 
+}
+.num5{
+    position: absolute;
+    left: 380px;
+    bottom: 20px; 
+}
+.num6{
+    position: absolute;
+    left: 130px;
+    bottom: 160px; 
+}
+.num7{
+    position: absolute;
+    left: 200px;
+    top: 190px; 
+}
+.num8{
+    position: absolute;
+    left: 370px;
+    top: 110px; 
+}
+.num9{
+    position: absolute;
+    right: 200px;
+    top: 200px; 
+}
+.num10{
+    position: absolute;
+    right: 200px;
+    bottom: 190px; 
+}
+.num11{
+    position: absolute;
+    right: 370px;
+    bottom: 90px; 
+}
+.num12{
+    position: absolute;
+    left: 190px;
+    bottom: 200px; 
+}
+.num13{
+    position: absolute;
+    left: 370px;
+    top: 230px; 
+}
+.num14{
+    position: absolute;
+    right: 300px;
+    top: 260px; 
+}
+.num15{
+    position: absolute;
+    right: 300px;
+    bottom: 240px; 
+}
+.num16{
+    position: absolute;
+    left: 370px;
+    bottom: 200px; 
+}
+.num17{
+    position: absolute;
+    left: 300px;
+    bottom: 240px; 
+}
+.num18{
+    position: absolute;
+    left: 300px;
+    top: 260px; 
+}
+.num19{
+    position: absolute;
+    left: 130px;
+    top: 270px; 
+}
+.num20{
+    position: absolute;
+    right: 270px;
+    top: 90px;
+}
+.num21{
+    position: absolute;
+    right: 270px;
+    bottom: 70px;
+}
+.num22{
+    position: absolute;
+    left: 280px;
+    top: 180px;
+}
+.num23{
+    position: absolute;
+    right: 220px;
+    bottom: 260px;
+}
+.num24{
+    position: absolute;
+    left: 280px;
+    bottom: 160px;
 }
