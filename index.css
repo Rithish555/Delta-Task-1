@@ -143,7 +143,7 @@ body{
 }
 
 .dots1{
-    margin-inline: 140px;
+    margin-inline: 120px;
 }
 .dots2{
     margin-inline: 80px;
@@ -152,10 +152,10 @@ body{
     margin-inline: 30px;
 }
 .dots41{
-    margin-left: 60px;
+    margin-left: 50px;
 }
 .dots42{
-    margin-right: 60px;
+    margin-right: 50px;
 }
 .dots5{
     margin-inline: 30px;
@@ -164,16 +164,16 @@ body{
     margin-inline: 80px;
 }
 .dots7{
-    margin-inline: 140px;
+    margin-inline: 120px;
 }
 
 .row4set1{
     display: flex;
-    margin-inline: 100px;
+    margin-inline: 90px;
 }
 .row4set2{
     display: flex;
-    margin-inline: 100px;
+    margin-inline: 90px;
 }
 .lines{
     background-color: aliceblue;
@@ -183,10 +183,10 @@ body{
 .line1{
     position: absolute;
     height: 3px;
-    width: 252px;
-    left: 7px;
+    width: 248px;
+    left: 30px;
     top: 186px;
-    transform: rotate(125deg);
+    transform: rotate(124deg);
 }
 .line2{
     position: absolute;
@@ -198,19 +198,19 @@ body{
 .line3{
     position: absolute;
     height: 3px;
-    width: 252px;
-    right: 7px;
+    width: 248px;
+    right: 30px;
     top: 186px;
-    transform: rotate(55deg);
+    transform: rotate(56deg);
 }
 
 .line4{
     position: absolute;
     height: 3px;
-    width: 252px;
-    right: 6px;
+    width: 248px;
+    right: 30px;
     bottom: 168px;
-    transform: rotate(125deg);
+    transform: rotate(124deg);
 }
 .line5{
     position: absolute;
@@ -222,18 +222,18 @@ body{
 .line6{
     position: absolute;
     height: 3px;
-    width: 252px;
-    left: 6px;
+    width: 248px;
+    left: 34px;
     bottom: 167px;
-    transform: rotate(55deg);
+    transform: rotate(56deg);
 }
 .line7{
     position: absolute;
     height: 3px;
-    width: 170px;
-    left: 128px;
+    width: 166px;
+    left: 134px;
     top: 221px;
-    transform: rotate(125deg);
+    transform: rotate(124deg);
 }
 .line8{
     position: absolute;
@@ -245,18 +245,18 @@ body{
 .line9{
     position: absolute;
     height: 3px;
-    width: 170px;
-    right: 130px;
-    top: 223px;
-    transform: rotate(55deg);
+    width: 166px;
+    right: 134px;
+    top: 220px;
+    transform: rotate(56deg);
 }
 .line10{
     position: absolute;
     height: 3px;
-    width: 170px;
-    right: 130px;
-    bottom: 203px;
-    transform: rotate(125deg);
+    width: 162px;
+    right: 138px;
+    bottom: 202px;
+    transform: rotate(124deg);
 }
 .line11{
     position: absolute;
@@ -268,10 +268,10 @@ body{
 .line12{
     position: absolute;
     height: 3px;
-    width: 170px;
-    left: 130px;
-    bottom: 203px;
-    transform: rotate(55deg);
+    width: 164px;
+    left: 138px;
+    bottom: 202px;
+    transform: rotate(56deg);
 } 
 .line13{
     position: absolute;
@@ -325,24 +325,24 @@ body{
     position: absolute;
     height: 3px;
     width: 62px;
-    left: 76px;
+    left: 98px;
     top: 310px;
 }
 .line20{
     position: absolute;
     height: 3px;
-    width: 58px;
-    right: 215px;
-    top: 105px;
-    transform: rotate(125deg);
+    width: 42px;
+    right: 232px;
+    top: 104px;
+    transform: rotate(124deg);
 }
 .line21{
     position: absolute;
     height: 3px;
-    width: 58px;
-    right: 215px;
+    width: 44px;
+    right: 230px;
     bottom: 85px;
-    transform: rotate(55deg);
+    transform: rotate(56deg);
 }
 
 .line22{
@@ -356,8 +356,8 @@ body{
 .line23{
     position: absolute;
     height: 3px;
-    width: 65px;
-    right: 172px;
+    width: 50px;
+    right: 196px;
     top: 310px;
 }
 .line24{
