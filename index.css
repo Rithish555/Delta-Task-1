@@ -191,8 +191,8 @@ body{
 .line2{
     position: absolute;
     height: 3px;
-    width: 280px;
-    left: 235px;
+    width: 240px;
+    left: 255px;
     top: 70px;
 }
 .line3{
@@ -215,8 +215,8 @@ body{
 .line5{
     position: absolute;
     height: 3px;
-    width: 280px;
-    right: 235px;
+    width: 248px;
+    right: 252px;
     bottom: 45px;
 }
 .line6{
