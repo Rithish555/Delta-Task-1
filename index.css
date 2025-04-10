@@ -15,10 +15,6 @@ body{
 }
 
 .timers{
-    display: flex;
-    justify-content: space-between;
-    margin-inline: 200px;
-    margin-top: 50px;
     font-size: 20px;
     font-weight: 600;
     color: rgb(7, 189, 189);
@@ -28,6 +24,9 @@ body{
     background-color: rgba(0, 0, 0, 0.662);
     padding: 8px;
     border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 5px 5px 10px 5px black ;
 }
 
 .time{
@@ -47,16 +46,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .box{
     text-align: center;
-    background-color: bisque;
-    height: 500px;
-    width: 500px;
-    margin-bottom: 100px;
-    margin-right: 100px;
+    background-color: rgba(0, 0, 0, 0.553);
+    height: 600px;
+    width: 750px;
+    margin-bottom: 60px;
+    margin-inline: 100px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 5px 5px 10px 5px black ;
 }
 
 .points{
@@ -69,10 +72,106 @@ body{
     font-size: xx-large;
 }
 
-.subpoints1{
-    margin-left: 110px;
-}
-
 .pointsnum{
     color: rgb(7, 189, 189);
+}
+
+.dots{
+    background-color: aliceblue;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(7, 189, 189);
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+}
+
+.dots:hover{
+    background-color:rgba(0, 0, 0, 0.644) ;
+    cursor: pointer;
+}
+
+.row{
+    display: flex;
+    margin-top: 40px;
+}
+
+.row1{
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+}
+.row7{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+}
+
+.row2{
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+}
+
+.row6{
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    transform: translateX(-50%);
+}
+.row3{
+    position: absolute;
+    left: 50%;
+    top: 160px;
+    transform: translateX(-50%);
+}
+
+.row5{
+    position: absolute;
+    left: 50%;
+    bottom: 180px;
+    transform: translateX(-50%);
+}
+.row4{
+    position: absolute;
+    left: 50%;
+    top: 250px;
+    transform: translateX(-50%);
+}
+
+.dots1{
+    margin-inline: 120px;
+}
+.dots2{
+    margin-inline: 80px;
+}
+.dots3{
+    margin-inline: 30px;
+}
+.dots41{
+    margin-left: 50px;
+}
+.dots42{
+    margin-right: 50px;
+}
+.dots5{
+    margin-inline: 30px;
+}
+.dots6{
+    margin-inline: 80px;
+}
+.dots7{
+    margin-inline: 120px;
+}
+
+.row4set1{
+    display: flex;
+    margin-inline: 90px;
+}
+.row4set2{
+    display: flex;
+    margin-inline: 90px;
 }
