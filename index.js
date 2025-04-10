@@ -1,4 +1,16 @@
-const box = document.getElementById("mainbox")
+/*--------------------------------------------------------ELEMENTS SELECTORS------------------------------------------------------------------------------------ */
+
+
+const box = document.getElementById("mainbox");
+const gameTime = document.getElementById("totaltime");
+const dots = document.querySelectorAll(".dots")
+
+
+/*--------------------------------------------------------------CONSTANTS-----------------------------------------------------------------------------------------------*/
+
+let playerTimer = 15;
+let totalTime = 5;
+let count = 0;
 const nodeEdges=[
     {id:1,width:248,left:30,top:186,deg:124},
     {id:2,width:240,left:255,top:70,deg:0},
@@ -51,6 +63,9 @@ const edgeNums = [
     {id:1,left:520,top:280},
     {id:1,left:280,top:420},
 ]
+
+/*--------------------------------------------------------------FUNCTIONS------------------------------------------------------------------------------------------------*/
+
 nodeEdges.forEach(({width,left,top,deg})=>{
     let edgeDivs = document.createElement("div");
     edgeDivs.style.position=`absolute`;
@@ -73,3 +88,31 @@ edgeNums.forEach(({id,left,top}) => {
     numDivs.style.top = `${top}px`;
     box.append(numDivs);
 });
+
+let totalTimeCounter = setInterval(()=>{
+    if(totalTime==1){
+        clearInterval(totalTimeCounter);
+    }
+    totalTime-=1;
+    gameTime.innerHTML=`${totalTime}`;
+    console.log(totalTime);
+},1000);
+
+
+dots.forEach((dot)=>{
+    dot.addEventListener("click", ()=>{
+        count+=1;
+        if(count % 2 ==0){
+            dot.classList.toggle('red');
+        }
+        else{
+            dot.classList.toggle('blue');
+        }
+    })
+})
+
+
+
+
+
+

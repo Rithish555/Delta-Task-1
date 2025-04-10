@@ -80,7 +80,7 @@ body{
     background-color: aliceblue;
     border-style: solid;
     border-width: 5px;
-    border-color: rgb(7, 189, 189);
+    border-color: rgb(32, 156, 55);
     height: 30px;
     width: 30px;
     border-radius: 50px;
@@ -174,4 +174,12 @@ body{
 .row4set2{
     display: flex;
     margin-inline: 90px;
+}
+
+.red{
+    background-color: red;
+}
+
+.blue{
+    background-color: rgb(24, 166, 255);
 }
