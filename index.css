@@ -87,8 +87,11 @@ body{
 }
 
 .dots:hover{
-    background-color:rgba(0, 0, 0, 0.644) ;
+    background-color:rgb(117, 163, 131) ;
     cursor: pointer;
+}
+.dots:active{
+    transform: scale(105%);
 }
 
 .row{
