@@ -3,14 +3,18 @@
 
 const box = document.getElementById("mainbox");
 const gameTime = document.getElementById("totaltime");
-const dots = document.querySelectorAll(".dots")
+const dots = document.querySelectorAll(".dots");
+const redPlayerTime = document.getElementById("redplayertime");
+const bluePlayerTime = document.getElementById("blueplayertime");
 
 
 /*--------------------------------------------------------------CONSTANTS-----------------------------------------------------------------------------------------------*/
 
-let playerTimer = 15;
-let totalTime = 5;
+let redTimer;
+let blueTimer;
+let totalTime = 600;
 let count = 0;
+let playtime;
 const nodeEdges=[
     {id:1,width:248,left:30,top:186,deg:124},
     {id:2,width:240,left:255,top:70,deg:0},
@@ -63,6 +67,7 @@ const edgeNums = [
     {id:1,left:520,top:280},
     {id:1,left:280,top:420},
 ]
+const connectingEdges = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,1],[7,8],[8,9],[9,10],[10,11],[11,12],[12,1],[13,14],[14,15],[15,16],[16,17],[17,18],[18,13],[1,7],[3,9],[5,11],[8,14],[10,16],[12,18]];
 
 /*--------------------------------------------------------------FUNCTIONS------------------------------------------------------------------------------------------------*/
 
@@ -93,10 +98,45 @@ let totalTimeCounter = setInterval(()=>{
     if(totalTime==1){
         clearInterval(totalTimeCounter);
     }
-    totalTime-=1;
     gameTime.innerHTML=`${totalTime}`;
-    console.log(totalTime);
+    totalTime-=1;
 },1000);
+
+function playerTimeCounter(){
+    if(count%2==0){
+        playtime = setInterval(()=>{
+            if(redTimer ==0){ 
+                timeup("Red Time Up! Blue Wins!");
+                clearInterval(playtime);
+            }
+            redPlayerTime.textContent=`${redTimer}`;
+            redTimer-=1;
+        },1000);
+    }
+    else{
+        playtime = setInterval(()=>{
+            if(blueTimer ==0){ 
+                timeup("Blue Time Up! Red Wins!");
+                clearInterval(playtime);
+            }
+            bluePlayerTime.textContent=`${blueTimer}`;
+            blueTimer-=1;
+        },1000);
+    }
+    
+}
+function timeup(msg){
+    clearInterval(totalTimeCounter);
+    document.body.innerHTML = '';
+    let timeUpMsg = document.createElement("div");
+    timeUpMsg.textContent = msg;
+    timeUpMsg.style.fontSize = `40px`;
+    timeUpMsg.style.textAlign = `center`;
+    timeUpMsg.style.color = `aliceblue`;
+    timeUpMsg.style.fontWeight = `900`;
+    timeUpMsg.style.marginTop = `25%`;
+    document.body.append(timeUpMsg);
+}
 
 
 dots.forEach((dot)=>{
@@ -110,11 +150,20 @@ dots.forEach((dot)=>{
             }}
         if (dotOk1 && count<=6){
             count+=1;
-            console.log(count);
             if(count % 2 !=0){
+                redTimer = 15;
+                blueTimer = 15;
+                redPlayerTime.textContent=`${redTimer}`;
+                clearInterval(playtime);
+                playerTimeCounter();
                 dot.classList.add('red');
             }
             else{
+                redTimer = 15;
+                blueTimer = 15;
+                bluePlayerTime.textContent=`${blueTimer}`;
+                clearInterval(playtime);
+                playerTimeCounter();
                 dot.classList.add('blue');
             }
         }
@@ -125,7 +174,6 @@ dots.forEach((dot)=>{
             }}
         if(dotOk2 && count>=6 && count<8){
             count+=1;
-            console.log(count);
             if(count % 2 !=0){
                 dot.classList.add('red');
             }
