@@ -101,18 +101,39 @@ let totalTimeCounter = setInterval(()=>{
 
 dots.forEach((dot)=>{
     dot.addEventListener("click", ()=>{
-        count+=1;
-        if(count % 2 ==0){
-            dot.classList.toggle('red');
+        let dotOk1 = false;
+        let dotOk2 = false;
+        for(let i=1 ;i<=6;i++){
+            if(dot.classList.contains(`dot${i}`)){
+                dotOk1 = true;
+                break;    
+            }}
+        if (dotOk1 && count<=6){
+            count+=1;
+            console.log(count);
+            if(count % 2 !=0){
+                dot.classList.add('red');
+            }
+            else{
+                dot.classList.add('blue');
+            }
         }
-        else{
-            dot.classList.toggle('blue');
+        for(let i=7 ;i<=12;i++){
+            if(dot.classList.contains(`dot${i}`)){
+                dotOk2 = true;
+                break;    
+            }}
+        if(dotOk2 && count>=6 && count<8){
+            count+=1;
+            console.log(count);
+            if(count % 2 !=0){
+                dot.classList.add('red');
+            }
+            else{
+                dot.classList.add('blue');
+            }
         }
-    })
-})
-
-
-
-
+        
+    })})
 
 
