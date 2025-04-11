@@ -265,6 +265,31 @@ pause.addEventListener("click",()=>{
     }
 })
 
+reset.addEventListener("click",()=>{
+    count = 0;
+    dots.forEach((dot)=>{
+        if(dot.classList.contains("red")){
+            dot.classList.remove("red");
+        }
+        else if(dot.classList.contains("blue")){
+            dot.classList.remove("blue");
+        }
+    })
+    clearInterval(totalTimeCounter);
+    clearInterval(playtime);
+    gameTime.innerHTML=`600`;
+    totalTimeCounter = setInterval(()=>{
+        if(totalTime==1){
+            clearInterval(totalTimeCounter);
+        }
+        gameTime.innerHTML=`${totalTime}`;
+        totalTime-=1;
+    },1000);
+    resetTimerBlue();
+    resetTimerRed();
+
+})
+
 dots.forEach((dot)=>{
     dot.addEventListener("click",titanMovement)
 })
