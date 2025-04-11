@@ -7,12 +7,15 @@ const dots = document.querySelectorAll(".dots");
 const redPlayerTime = document.getElementById("redplayertime");
 const bluePlayerTime = document.getElementById("blueplayertime");
 const turn = document.getElementById("turn");
+const pause = document.getElementById("pause");
+const reset = document.getElementById("reset");
 
 
 /*--------------------------------------------------------------CONSTANTS-----------------------------------------------------------------------------------------------*/
 
-let redTimer=500;
-let blueTimer=500;
+
+let redTimer=15;
+let blueTimer=15;
 let totalTime = 600;
 let count = 0;
 let playtime;
@@ -70,7 +73,9 @@ const edgeNums = [
 ]
 const connectingEdges = [[2,6,7],[1,3],[2,4,9],[3,5],[4,6,11],[1,5],[1,8,12],[7,9,14],[8,10,3],[9,11,16],[10,12,5],[7,18,11],[14,18],[8,13,15],[14,16],[10,15,17],[16,18],[13,17,12]];
 
+
 /*--------------------------------------------------------------FUNCTIONS------------------------------------------------------------------------------------------------*/
+
 
 nodeEdges.forEach(({width,left,top,deg})=>{
     let edgeDivs = document.createElement("div");
@@ -95,6 +100,7 @@ edgeNums.forEach(({id,left,top}) => {
     box.append(numDivs);
 });
 
+
 let totalTimeCounter = setInterval(()=>{
     if(totalTime==1){
         clearInterval(totalTimeCounter);
@@ -107,52 +113,44 @@ function playerTimeCounter(){
     if(count%2==0){
         playtime = setInterval(()=>{
             if(redTimer ==0){ 
-                timeup("Red Time Up! Blue Wins!");
+                count++;
+                changeTurn();
                 clearInterval(playtime);
+                resetTimerRed();
             }
             redPlayerTime.textContent=`${redTimer}`;
-            redTimer-=1;
+            redTimer--;;
         },1000);
     }
     else{
         playtime = setInterval(()=>{
             if(blueTimer ==0){ 
-                timeup("Blue Time Up! Red Wins!");
+                count++;
+                changeTurn();
                 clearInterval(playtime);
+                resetTimerBlue();
             }
             bluePlayerTime.textContent=`${blueTimer}`;
-            blueTimer-=1;
+            blueTimer--;
         },1000);
     }
 }
-    
-
-function timeup(msg){
-    clearInterval(totalTimeCounter);
-    document.body.innerHTML = '';
-    let timeUpMsg = document.createElement("div");
-    timeUpMsg.textContent = msg;
-    timeUpMsg.style.fontSize = `40px`;
-    timeUpMsg.style.textAlign = `center`;
-    timeUpMsg.style.color = `aliceblue`;
-    timeUpMsg.style.fontWeight = `900`;
-    timeUpMsg.style.marginTop = `25%`;
-    document.body.append(timeUpMsg);
-}
 function resetTimerRed(){
-    redTimer = 500;
-    blueTimer = 500;
+    redTimer = 15;
+    blueTimer = 15;
     redPlayerTime.textContent=`${redTimer}`;
     clearInterval(playtime);
     playerTimeCounter();
 }
 function resetTimerBlue(){
-    redTimer = 500;
-    blueTimer = 500;
+    redTimer = 15;
+    blueTimer = 15;
     bluePlayerTime.textContent=`${blueTimer}`;
     clearInterval(playtime);
     playerTimeCounter();
 }
+
+
 function changeTurn(){
     if(count % 2 ==0){
         turn.textContent = `Red`;
@@ -163,6 +161,7 @@ function changeTurn(){
         turn.style.color = 'rgb(24, 166, 255)';
     }
 }
+
 
 dots.forEach((dot)=>{
     dot.addEventListener("click", ()=>{
