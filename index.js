@@ -10,8 +10,8 @@ const bluePlayerTime = document.getElementById("blueplayertime");
 
 /*--------------------------------------------------------------CONSTANTS-----------------------------------------------------------------------------------------------*/
 
-let redTimer;
-let blueTimer;
+let redTimer=500;
+let blueTimer=500;
 let totalTime = 600;
 let count = 0;
 let playtime;
@@ -67,7 +67,8 @@ const edgeNums = [
     {id:1,left:520,top:280},
     {id:1,left:280,top:420},
 ]
-const connectingEdges = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,1],[7,8],[8,9],[9,10],[10,11],[11,12],[12,1],[13,14],[14,15],[15,16],[16,17],[17,18],[18,13],[1,7],[3,9],[5,11],[8,14],[10,16],[12,18]];
+const connectingEdges = [[2,6,7],[1,3],[2,4,9],[3,5],[4,6,11],[1,5],[1,8,12],[7,9,14],[8,10,3],[9,11,16],[10,12,5],[7,18,11],[14,18],[8,13,15],[14,16],[10,15,17],[16,18],[13,17,12]];
+
 
 /*--------------------------------------------------------------FUNCTIONS------------------------------------------------------------------------------------------------*/
 
@@ -123,7 +124,6 @@ function playerTimeCounter(){
             blueTimer-=1;
         },1000);
     }
-    
 }
 function timeup(msg){
     clearInterval(totalTimeCounter);
@@ -137,51 +137,98 @@ function timeup(msg){
     timeUpMsg.style.marginTop = `25%`;
     document.body.append(timeUpMsg);
 }
-
+function resetTimerRed(){
+    redTimer = 500;
+    blueTimer = 500;
+    redPlayerTime.textContent=`${redTimer}`;
+    clearInterval(playtime);
+    playerTimeCounter();
+}
+function resetTimerBlue(){
+    redTimer = 500;
+    blueTimer = 500;
+    bluePlayerTime.textContent=`${blueTimer}`;
+    clearInterval(playtime);
+    playerTimeCounter();
+}
 
 dots.forEach((dot)=>{
     dot.addEventListener("click", ()=>{
         let dotOk1 = false;
         let dotOk2 = false;
-        for(let i=1 ;i<=6;i++){
-            if(dot.classList.contains(`dot${i}`)){
-                dotOk1 = true;
-                break;    
-            }}
-        if (dotOk1 && count<=6){
-            count+=1;
-            if(count % 2 !=0){
-                redTimer = 15;
-                blueTimer = 15;
-                redPlayerTime.textContent=`${redTimer}`;
-                clearInterval(playtime);
-                playerTimeCounter();
-                dot.classList.add('red');
-            }
-            else{
-                redTimer = 15;
-                blueTimer = 15;
-                bluePlayerTime.textContent=`${blueTimer}`;
-                clearInterval(playtime);
-                playerTimeCounter();
-                dot.classList.add('blue');
-            }
-        }
-        for(let i=7 ;i<=12;i++){
-            if(dot.classList.contains(`dot${i}`)){
-                dotOk2 = true;
-                break;    
-            }}
-        if(dotOk2 && count>=6 && count<8){
-            count+=1;
-            if(count % 2 !=0){
-                dot.classList.add('red');
-            }
-            else{
-                dot.classList.add('blue');
+        if (count<=6){
+            for(let i=1 ;i<=6;i++){
+                if(dot.classList.contains(`${i}`)){
+                    dotOk1 = true;
+                    break;    
+                }}
+            if(dotOk1){
+                count++;
+                console.log(count);
+                if(count % 2 !=0){
+                    resetTimerRed();
+                    dot.classList.add('red');
+                }
+                else{
+                    resetTimerBlue();
+                    dot.classList.add('blue');
+                }
             }
         }
         
-    })})
-
-
+        if(count>=6 && count<8){
+            for(let i=7 ;i<=12;i++){
+                if(dot.classList.contains(`${i}`)){
+                    dotOk2 = true;
+                    break;    
+                }}
+            if(dotOk2){
+                count++;
+                console.log(count);
+                if(count % 2 !=0){
+                    resetTimerRed();
+                    dot.classList.add('red');
+                }
+                else{
+                    resetTimerBlue();
+                    dot.classList.add('blue');
+                }
+            }
+            
+        }
+        if(count>=8){
+            let dotnum = Number(dot.classList[2]);
+            for(let nums of connectingEdges[dotnum-1]){
+                let stringNums = String(nums);
+                let dotOk3 = false;
+                for(let node of dots){
+                    if(count % 2 ==0 && node.classList.contains(`${stringNums}`) && node.classList.contains("red") && !dot.classList.contains("blue")){
+                        resetTimerRed();
+                        count++;
+                        console.log(`${count}count inside func1`);
+                        console.log("red");
+                        console.log(node);
+                        node.classList.remove("red");
+                        dot.classList.add("red");
+                        dotOk3 = true;
+                        break;
+                    }
+                    else if(count % 2 !=0 && node.classList.contains(String(nums)) && node.classList.contains("blue") && !dot.classList.contains("red")){
+                        resetTimerBlue();
+                        count++;
+                        console.log(`${count}count inside func2`);
+                        console.log(node);
+                        console.log('blue');
+                        node.classList.remove("blue");
+                        dot.classList.add('blue');
+                        dotOk3 = true;
+                        break;
+                    }
+                }
+                if(dotOk3){
+                    break;
+                }
+            }
+        }
+    })
+})

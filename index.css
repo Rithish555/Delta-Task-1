@@ -84,6 +84,7 @@ body{
     height: 30px;
     width: 30px;
     border-radius: 50px;
+    color: black;
 }
 
 .dots:hover{
