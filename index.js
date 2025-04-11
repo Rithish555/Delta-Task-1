@@ -68,7 +68,7 @@ const edgeNums = [
     {id:1,left:280,top:420},
 ]
 const connectingEdges = [[2,6,7],[1,3],[2,4,9],[3,5],[4,6,11],[1,5],[1,8,12],[7,9,14],[8,10,3],[9,11,16],[10,12,5],[7,18,11],[14,18],[8,13,15],[14,16],[10,15,17],[16,18],[13,17,12]];
-
+const points = 
 
 /*--------------------------------------------------------------FUNCTIONS------------------------------------------------------------------------------------------------*/
 
@@ -125,6 +125,8 @@ function playerTimeCounter(){
         },1000);
     }
 }
+    
+
 function timeup(msg){
     clearInterval(totalTimeCounter);
     document.body.innerHTML = '';
@@ -203,22 +205,16 @@ dots.forEach((dot)=>{
                 let dotOk3 = false;
                 for(let node of dots){
                     if(count % 2 ==0 && node.classList.contains(`${stringNums}`) && node.classList.contains("red") && !dot.classList.contains("blue")){
-                        resetTimerRed();
                         count++;
-                        console.log(`${count}count inside func1`);
-                        console.log("red");
-                        console.log(node);
+                        resetTimerRed();          
                         node.classList.remove("red");
                         dot.classList.add("red");
                         dotOk3 = true;
                         break;
                     }
                     else if(count % 2 !=0 && node.classList.contains(String(nums)) && node.classList.contains("blue") && !dot.classList.contains("red")){
-                        resetTimerBlue();
                         count++;
-                        console.log(`${count}count inside func2`);
-                        console.log(node);
-                        console.log('blue');
+                        resetTimerBlue();
                         node.classList.remove("blue");
                         dot.classList.add('blue');
                         dotOk3 = true;
