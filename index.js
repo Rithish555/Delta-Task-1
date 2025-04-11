@@ -162,14 +162,12 @@ function changeTurn(){
     }
 }
 
-
-dots.forEach((dot)=>{
-    dot.addEventListener("click", ()=>{
-        let dotOk1 = false;
+function titanMovement(dot){
+    let dotOk1 = false;
         let dotOk2 = false;
         if (count<=6){
             for(let i=1 ;i<=6;i++){
-                if(dot.classList.contains(`${i}`)){
+                if(dot.target.classList.contains(`${i}`)){
                     dotOk1 = true;
                     break;    
                 }}
@@ -179,18 +177,18 @@ dots.forEach((dot)=>{
                 console.log(count);
                 if(count % 2 !=0){
                     resetTimerRed();
-                    dot.classList.add('red');
+                    dot.target.classList.add('red');
                 }
                 else{
                     resetTimerBlue();
-                    dot.classList.add('blue');
+                    dot.target.classList.add('blue');
                 }
             }
         }
         
         if(count>=6 && count<8){
             for(let i=7 ;i<=12;i++){
-                if(dot.classList.contains(`${i}`)){
+                if(dot.target.classList.contains(`${i}`)){
                     dotOk2 = true;
                     break;    
                 }}
@@ -200,36 +198,36 @@ dots.forEach((dot)=>{
                 console.log(count);
                 if(count % 2 !=0){
                     resetTimerRed();
-                    dot.classList.add('red');
+                    dot.target.classList.add('red');
                 }
                 else{
                     resetTimerBlue();
-                    dot.classList.add('blue');
+                    dot.target.classList.add('blue');
                 }
             }
             
         }
         if(count>=8){
-            let dotnum = Number(dot.classList[2]);
+            let dotnum = Number(dot.target.classList[2]);
             for(let nums of connectingEdges[dotnum-1]){
                 let stringNums = String(nums);
                 let dotOk3 = false;
                 for(let node of dots){
-                    if(count % 2 ==0 && node.classList.contains(`${stringNums}`) && node.classList.contains("red") && !dot.classList.contains("blue")){
+                    if(count % 2 ==0 && node.classList.contains(`${stringNums}`) && node.classList.contains("red") && !dot.target.classList.contains("blue")){
                         count++;
                         changeTurn();
                         resetTimerRed();          
                         node.classList.remove("red");
-                        dot.classList.add("red");
+                        dot.target.classList.add("red");
                         dotOk3 = true;
                         break;
                     }
-                    else if(count % 2 !=0 && node.classList.contains(String(nums)) && node.classList.contains("blue") && !dot.classList.contains("red")){
+                    else if(count % 2 !=0 && node.classList.contains(String(nums)) && node.classList.contains("blue") && !dot.target.classList.contains("red")){
                         count++;
                         changeTurn();
                         resetTimerBlue();
                         node.classList.remove("blue");
-                        dot.classList.add('blue');
+                        dot.target.classList.add('blue');
                         dotOk3 = true;
                         break;
                     }
@@ -239,5 +237,34 @@ dots.forEach((dot)=>{
                 }
             }
         }
-    })
+}
+
+pause.addEventListener("click",()=>{
+    if(pause.textContent =='⏸️'){
+        pause.textContent = `▶️`;
+        clearInterval(playtime);
+        clearInterval(totalTimeCounter);
+        dots.forEach((dot)=>{
+            dot.removeEventListener("click",titanMovement);
+        })
+    }
+    else if(pause.textContent ==`▶️`){
+        pause.textContent = `⏸️`;
+        totalTimeCounter = setInterval(()=>{
+            if(totalTime==1){
+                clearInterval(totalTimeCounter);
+            }
+            gameTime.innerHTML=`${totalTime}`;
+            totalTime-=1;
+        },1000);
+        playerTimeCounter();
+        
+        dots.forEach((dot)=>{
+            dot.addEventListener("click",titanMovement)
+        })
+    }
+})
+
+dots.forEach((dot)=>{
+    dot.addEventListener("click",titanMovement)
 })
