@@ -6,6 +6,7 @@ const gameTime = document.getElementById("totaltime");
 const dots = document.querySelectorAll(".dots");
 const redPlayerTime = document.getElementById("redplayertime");
 const bluePlayerTime = document.getElementById("blueplayertime");
+const turn = document.getElementById("turn");
 
 
 /*--------------------------------------------------------------CONSTANTS-----------------------------------------------------------------------------------------------*/
@@ -54,12 +55,12 @@ const edgeNums = [
     {id:6,left:550,top:380},
     {id:4,left:370,top:490},
     {id:6,left:190,top:390},
-    {id:7,left:370,top:230},
-    {id:9,left:440,top:260},
+    {id:9,left:370,top:230},
+    {id:7,left:440,top:260},
     {id:7,left:440,top:340},
-    {id:7,left:370,top:370},
-    {id:9,left:300,top:340},
-    {id:8,left:300,top:260},
+    {id:9,left:370,top:370},
+    {id:8,left:300,top:340},
+    {id:7,left:300,top:260},
     {id:1,left:130,top:270},
     {id:1,left:470,top:90},
     {id:1,left:470,top:510},
@@ -68,7 +69,6 @@ const edgeNums = [
     {id:1,left:280,top:420},
 ]
 const connectingEdges = [[2,6,7],[1,3],[2,4,9],[3,5],[4,6,11],[1,5],[1,8,12],[7,9,14],[8,10,3],[9,11,16],[10,12,5],[7,18,11],[14,18],[8,13,15],[14,16],[10,15,17],[16,18],[13,17,12]];
-const points = 
 
 /*--------------------------------------------------------------FUNCTIONS------------------------------------------------------------------------------------------------*/
 
@@ -153,6 +153,16 @@ function resetTimerBlue(){
     clearInterval(playtime);
     playerTimeCounter();
 }
+function changeTurn(){
+    if(count % 2 ==0){
+        turn.textContent = `Red`;
+        turn.style.color = 'red';
+    }
+    else{
+        turn.textContent = `Blue`;
+        turn.style.color = 'rgb(24, 166, 255)';
+    }
+}
 
 dots.forEach((dot)=>{
     dot.addEventListener("click", ()=>{
@@ -166,6 +176,7 @@ dots.forEach((dot)=>{
                 }}
             if(dotOk1){
                 count++;
+                changeTurn();
                 console.log(count);
                 if(count % 2 !=0){
                     resetTimerRed();
@@ -186,6 +197,7 @@ dots.forEach((dot)=>{
                 }}
             if(dotOk2){
                 count++;
+                changeTurn();
                 console.log(count);
                 if(count % 2 !=0){
                     resetTimerRed();
@@ -206,6 +218,7 @@ dots.forEach((dot)=>{
                 for(let node of dots){
                     if(count % 2 ==0 && node.classList.contains(`${stringNums}`) && node.classList.contains("red") && !dot.classList.contains("blue")){
                         count++;
+                        changeTurn();
                         resetTimerRed();          
                         node.classList.remove("red");
                         dot.classList.add("red");
@@ -214,6 +227,7 @@ dots.forEach((dot)=>{
                     }
                     else if(count % 2 !=0 && node.classList.contains(String(nums)) && node.classList.contains("blue") && !dot.classList.contains("red")){
                         count++;
+                        changeTurn();
                         resetTimerBlue();
                         node.classList.remove("blue");
                         dot.classList.add('blue');

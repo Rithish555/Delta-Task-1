@@ -187,3 +187,9 @@ body{
 .blue{
     background-color: rgb(24, 166, 255);
 }
+
+#turn{
+    color: red;
+    font-size: 40px;
+    font-weight: 900;
+}
