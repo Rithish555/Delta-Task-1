@@ -8,66 +8,70 @@
     <script src="index.js" defer></script>
 </head>
 <body>
-    <h1 class="gamename">Titan's Circuit</h1>  
-    <p class="turns">Turn:</p>
+    <div class="header">
+        <h1 class="gamename">Titan's Circuit</h1>  
+        <div class="buttons" id="pause">⏸️</div>
+        <div class="buttons" id="reset">🔄️</div>
+    </div>
+    <div class="turns">Turn : <span id="turn">Red</span></div>
     <div class="main">
         <div class="timers">
             <div class="timersbox">
                 <div>Red Time:</div>
-                <div class="time">1</div>
+                <div class="time" id="redplayertime"></div>
             </div>
             <div class="timersbox">
                 <div>Total Time:</div>
-                <div class="time">1</div>
+                <div class="time" id="totaltime"></div>
             </div>
             <div class="timersbox">
                 <div>Blue Time:</div>
-                <div class="time">1</div>
+                <div class="time" id="blueplayertime"></div>
             </div>
         </div>  
         <div class="box" id="mainbox">
             <div class="row1 row">
-                <div class="dots1 dots"></div>
-                <div class="dots1 dots"></div>
+                <div class="dots1 dots 2"></div>
+                <div class="dots1 dots 3"></div>
             </div>
             <div class="row2 row">
-                <div class="dots2 dots"></div>
-                <div class="dots2 dots"></div>
+                <div class="dots2 dots 8"></div>
+                <div class="dots2 dots 9"></div>
             </div>
             <div class="row3 row">
-                <div class="dots3 dots"></div>
-                <div class="dots3 dots"></div>
+                <div class="dots3 dots 14"></div>
+                <div class="dots3 dots 15"></div>
             </div>
             <div class="row4 row">
                 <div class="row4set1">
-                    <div class="dots41 dots"></div>
-                    <div class="dots41 dots"></div>
-                    <div class="dots41 dots"></div>
+                    <div class="dots41 dots 1"></div>
+                    <div class="dots41 dots 7"></div>
+                    <div class="dots41 dots 13"></div>
                 </div>
                 <div class="row4set2">
-                    <div class="dots42 dots"></div>
-                    <div class="dots42 dots"></div>
-                    <div class="dots42 dots"></div>
+                    <div class="dots42 dots 16"></div>
+                    <div class="dots42 dots 10"></div>
+                    <div class="dots42 dots 4"></div>
                 </div>
             </div>
             <div class="row5 row">
-                <div class="dots5 dots"></div>
-                <div class="dots5 dots"></div>
+                <div class="dots5 dots 18"></div>
+                <div class="dots5 dots 17"></div>
             </div>
             <div class="row6 row">
-                <div class="dots6 dots"></div>
-                <div class="dots6 dots"></div>
+                <div class="dots6 dots 12"></div>
+                <div class="dots6 dots 11"></div>
             </div>
             <div class="row7 row">
-                <div class="dots7 dots"></div>
-                <div class="dots7 dots"></div>
+                <div class="dots7 dots 6"></div>
+                <div class="dots7 dots 5"></div>
             </div>
         </div>
 
         <div class="points">
-            <div class="subpoints subpoints1">Points:</div>
-            <div class="subpoints">Red: <span class="pointsnum">1</span></div>
-            <div class="subpoints">Blue: <span class="pointsnum">1</span></div>
+            <div class="subpoints subpoints1">Points</div>
+            <div class="subpoints">Red: <span class="pointsnum"></span></div>
+            <div class="subpoints">Blue: <span class="pointsnum"></span></div>
         </div>
     
     </div>

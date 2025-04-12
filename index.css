@@ -7,11 +7,26 @@ body{
     background-color: rgb(16, 16, 78);
 }
 
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.buttons{
+    height: 50px;
+    width: 50px;
+    font-size: 50px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
 .gamename{
     text-align: center;
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 50px;
     color: aliceblue;
+    margin-left: 480px;
+    margin-right: 280px;
 }
 
 .timers{
@@ -37,7 +52,7 @@ body{
 
 .turns{
     text-align: center;
-    margin-top: 80px;
+    margin-top: 30px;
     font-size: 30px;
     color:rgb(7, 189, 189) ;
 }
@@ -46,7 +61,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .box{
@@ -70,6 +85,7 @@ body{
 .subpoints{
     margin:40px 0;
     font-size: xx-large;
+    text-decoration: underline;
 }
 
 .pointsnum{
@@ -80,15 +96,19 @@ body{
     background-color: aliceblue;
     border-style: solid;
     border-width: 5px;
-    border-color: rgb(7, 189, 189);
+    border-color: rgb(32, 156, 55);
     height: 30px;
     width: 30px;
     border-radius: 50px;
+    color: black;
 }
 
 .dots:hover{
-    background-color:rgba(0, 0, 0, 0.644) ;
+    background-color:rgb(117, 163, 131) ;
     cursor: pointer;
+}
+.dots:active{
+    transform: scale(105%);
 }
 
 .row{
@@ -174,4 +194,18 @@ body{
 .row4set2{
     display: flex;
     margin-inline: 90px;
+}
+
+.red{
+    background-color: red;
+}
+
+.blue{
+    background-color: rgb(24, 166, 255);
+}
+
+#turn{
+    color: red;
+    font-size: 40px;
+    font-weight: 900;
 }
