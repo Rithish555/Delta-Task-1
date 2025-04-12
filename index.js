@@ -99,8 +99,6 @@ edgeNums.forEach(({id,left,top}) => {
     numDivs.style.top = `${top}px`;
     box.append(numDivs);
 });
-
-
 let totalTimeCounter = setInterval(()=>{
     if(totalTime==1){
         clearInterval(totalTimeCounter);
@@ -108,13 +106,11 @@ let totalTimeCounter = setInterval(()=>{
     gameTime.innerHTML=`${totalTime}`;
     totalTime-=1;
 },1000);
-
 function playerTimeCounter(){
     if(count%2==0){
         playtime = setInterval(()=>{
             if(redTimer ==0){ 
-                count++;
-                changeTurn();
+                randomMove();
                 clearInterval(playtime);
                 resetTimerRed();
             }
@@ -125,8 +121,7 @@ function playerTimeCounter(){
     else{
         playtime = setInterval(()=>{
             if(blueTimer ==0){ 
-                count++;
-                changeTurn();
+                randomMove();
                 clearInterval(playtime);
                 resetTimerBlue();
             }
@@ -149,8 +144,6 @@ function resetTimerBlue(){
     clearInterval(playtime);
     playerTimeCounter();
 }
-
-
 function changeTurn(){
     if(count % 2 ==0){
         turn.textContent = `Red`;
@@ -161,84 +154,162 @@ function changeTurn(){
         turn.style.color = 'rgb(24, 166, 255)';
     }
 }
-
-function titanMovement(dot){
-    let dotOk1 = false;
-        let dotOk2 = false;
-        if (count<=6){
-            for(let i=1 ;i<=6;i++){
-                if(dot.target.classList.contains(`${i}`)){
-                    dotOk1 = true;
-                    break;    
-                }}
-            if(dotOk1){
-                count++;
-                changeTurn();
-                console.log(count);
-                if(count % 2 !=0){
-                    resetTimerRed();
-                    dot.target.classList.add('red');
-                }
-                else{
-                    resetTimerBlue();
-                    dot.target.classList.add('blue');
-                }
-            }
-        }
-        
-        if(count>=6 && count<8){
-            for(let i=7 ;i<=12;i++){
-                if(dot.target.classList.contains(`${i}`)){
-                    dotOk2 = true;
-                    break;    
-                }}
-            if(dotOk2){
-                count++;
-                changeTurn();
-                console.log(count);
-                if(count % 2 !=0){
-                    resetTimerRed();
-                    dot.target.classList.add('red');
-                }
-                else{
-                    resetTimerBlue();
-                    dot.target.classList.add('blue');
-                }
-            }
-            
-        }
-        if(count>=8){
-            let dotnum = Number(dot.target.classList[2]);
-            for(let nums of connectingEdges[dotnum-1]){
-                let stringNums = String(nums);
-                let dotOk3 = false;
-                for(let node of dots){
-                    if(count % 2 ==0 && node.classList.contains(`${stringNums}`) && node.classList.contains("red") && !dot.target.classList.contains("blue")){
+function randomMove(){
+    let dotOk4 = false;
+    if(count<6){
+        if(count %2 == 0 ){
+            for(let j=1;j<=6;j++){
+                for(let nodes2 of dots){
+                    if(nodes2.classList.contains(`${j}`) && !nodes2.classList.contains("red") && !nodes2.classList.contains("blue")){
+                        nodes2.classList.add("red");
                         count++;
                         changeTurn();
-                        resetTimerRed();          
-                        node.classList.remove("red");
-                        dot.target.classList.add("red");
-                        dotOk3 = true;
-                        break;
-                    }
-                    else if(count % 2 !=0 && node.classList.contains(String(nums)) && node.classList.contains("blue") && !dot.target.classList.contains("red")){
-                        count++;
-                        changeTurn();
-                        resetTimerBlue();
-                        node.classList.remove("blue");
-                        dot.target.classList.add('blue');
-                        dotOk3 = true;
+                        dotOk4 = true;
                         break;
                     }
                 }
-                if(dotOk3){
+                if(dotOk4){
                     break;
                 }
             }
         }
-}
+        else{
+            for(let j=1;j<=6;j++){
+                for(let nodes1 of dots){
+                    if(nodes1.classList.contains(`${j}`) && !nodes1.classList.contains("blue") && !nodes1.classList.contains("red")){
+                        nodes1.classList.add("blue");
+                        count++;
+                        changeTurn();
+                        dotOk4 = true;
+                        break;
+                    }
+                }
+                if(dotOk4){
+                    break;
+                }
+                    
+            }
+        }
+    }
+    else if ( count>=6 && count<8){
+        if(count %2 == 0){
+            for(let j=7;j<=8;j++){
+                for(let nodes2 of dots){
+                    if(nodes2.classList.contains(`${j}`) && !nodes2.classList.contains("red") && !nodes2.classList.contains("blue")){
+                        nodes2.classList.add("red");
+                        count++;
+                        changeTurn();
+                        dotOk4 = true;
+                        break;
+                    }
+                }
+                if(dotOk4){
+                    break;
+                }
+            }
+        }
+        else{
+            for(let j=7;j<=8;j++){
+                for(let nodes1 of dots){
+                    if(nodes1.classList.contains(`${j}`) && !nodes1.classList.contains("blue") && !nodes1.classList.contains("red")){
+                        nodes1.classList.add("blue");
+                        count++;
+                        changeTurn();
+                        dotOk4 = true;
+                        break;
+                    }
+                }
+                if(dotOk4){
+                    break;
+                }
+                    
+            }
 
+        }
+    }
+    else{
+        count++;
+        changeTurn();
+    }
+  
+}
+function titanMovement(dot){
+    let dotOk1 = false;
+    let dotOk2 = false;
+    if (count<6){
+        for(let i=1 ;i<=6;i++){
+            if(dot.target.classList.contains(`${i}`)){
+                dotOk1 = true;
+                break;    
+            }}
+        if(dotOk1 && !dot.target.classList.contains("red") && !dot.target.classList.contains("blue")){
+            count++;
+            changeTurn();
+            console.log(count);
+            if(count % 2 !=0){
+                resetTimerRed();
+                dot.target.classList.add('red');
+            }
+            else if (count%2 ==0){
+                resetTimerBlue();
+                console.log('hello');
+                dot.target.classList.add('blue');
+            }
+        }
+    }
+        
+    if(count>=6 && count<8){
+        for(let i=7 ;i<=12;i++){
+            if(dot.target.classList.contains(`${i}`)){
+                dotOk2 = true;
+                break;    
+            }}
+        if(dotOk2 && !dot.target.classList.contains("red") && !dot.target.classList.contains("blue")){
+            count++;
+            changeTurn();
+            console.log(count);
+            if(count % 2 !=0){
+                resetTimerRed();
+                dot.target.classList.add('red');
+            }
+            else{
+                resetTimerBlue();
+                dot.target.classList.add('blue');
+            }
+        }
+            
+    }
+    if(count>=8){
+        let dotnum = Number(dot.target.classList[2]);
+        for(let nums of connectingEdges[dotnum-1]){
+            let stringNums = String(nums);
+            let dotOk3 = false;
+            for(let node of dots){
+                if(count % 2 ==0 && node.classList.contains(`${stringNums}`) && node.classList.contains("red") && !dot.target.classList.contains("blue")){
+                    count++;
+                    changeTurn();
+                    resetTimerRed();          
+                    node.classList.remove("red");
+                    dot.target.classList.add("red");
+                    dotOk3 = true;
+                    break;
+                }
+                else if(count % 2 !=0 && node.classList.contains(String(nums)) && node.classList.contains("blue") && !dot.target.classList.contains("red")){
+                    count++;
+                    changeTurn();
+                    resetTimerBlue();
+                    node.classList.remove("blue");
+                    dot.target.classList.add('blue');
+                    dotOk3 = true;
+                    break;
+                }
+            }
+            if(dotOk3){
+                break;
+            }
+        }
+    }
+}
 pause.addEventListener("click",()=>{
     if(pause.textContent =='⏸️'){
         pause.textContent = `▶️`;
@@ -264,7 +335,6 @@ pause.addEventListener("click",()=>{
         })
     }
 })
-
 reset.addEventListener("click",()=>{
     count = 0;
     dots.forEach((dot)=>{
@@ -277,7 +347,7 @@ reset.addEventListener("click",()=>{
     })
     clearInterval(totalTimeCounter);
     clearInterval(playtime);
-    gameTime.innerHTML=`600`;
+    totalTime = 600;
     totalTimeCounter = setInterval(()=>{
         if(totalTime==1){
             clearInterval(totalTimeCounter);
@@ -289,7 +359,6 @@ reset.addEventListener("click",()=>{
     resetTimerRed();
 
 })
-
 dots.forEach((dot)=>{
     dot.addEventListener("click",titanMovement)
 })
