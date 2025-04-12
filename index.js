@@ -71,7 +71,7 @@ const edgeNums = [
     {id:1,left:520,top:280},
     {id:1,left:280,top:420},
 ]
-const connectingEdges = [[2,6,7],[1,3],[2,4,9],[3,5],[4,6,11],[1,5],[1,8,12],[7,9,14],[8,10,3],[9,11,16],[10,12,5],[7,18,11],[14,18],[8,13,15],[14,16],[10,15,17],[16,18],[13,17,12]];
+const connectingEdges = [[2,6,7],[1,3],[2,4,9],[3,5],[4,6,11],[1,5],[1,8,12],[7,9,14],[3,8,10],[9,11,16],[5,10,12],[7,11,18],[14,18],[8,13,15],[14,16],[10,15,17],[16,18],[12,13,17]];
 
 
 /*--------------------------------------------------------------FUNCTIONS------------------------------------------------------------------------------------------------*/
@@ -100,8 +100,9 @@ edgeNums.forEach(({id,left,top}) => {
     box.append(numDivs);
 });
 let totalTimeCounter = setInterval(()=>{
-    if(totalTime==1){
+    if(totalTime==0){
         clearInterval(totalTimeCounter);
+        gameOver();
     }
     gameTime.innerHTML=`${totalTime}`;
     totalTime-=1;
@@ -245,14 +246,12 @@ function titanMovement(dot){
         if(dotOk1 && !dot.target.classList.contains("red") && !dot.target.classList.contains("blue")){
             count++;
             changeTurn();
-            console.log(count);
             if(count % 2 !=0){
                 resetTimerRed();
                 dot.target.classList.add('red');
             }
             else if (count%2 ==0){
                 resetTimerBlue();
-                console.log('hello');
                 dot.target.classList.add('blue');
             }
         }
@@ -267,7 +266,6 @@ function titanMovement(dot){
         if(dotOk2 && !dot.target.classList.contains("red") && !dot.target.classList.contains("blue")){
             count++;
             changeTurn();
-            console.log(count);
             if(count % 2 !=0){
                 resetTimerRed();
                 dot.target.classList.add('red');
@@ -308,6 +306,87 @@ function titanMovement(dot){
                 break;
             }
         }
+        checkForGameOver();
+    }
+}
+function gameOver(){
+    let redpts=1;
+    let bluepts=10;
+    document.body.innerHTML = '';
+    let gameEndMsg = document.createElement("div");
+    gameEndMsg.textContent = "Game Over!";
+    gameEndMsg.style.fontSize = "50px";
+    gameEndMsg.style.fontWeight = "900";
+    gameEndMsg.style.marginTop = "80px";
+    gameEndMsg.style.color = "aliceblue";
+    gameEndMsg.style.textAlign = "center";
+    document.body.append(gameEndMsg);
+
+    let points = document.createElement("div");
+    points.textContent = "Points";
+    points.style.fontSize = "30px";
+    points.style.fontWeight = "600";
+    points.style.marginTop = "50px";
+    points.style.color = "aliceblue";
+    points.style.textAlign = "center";
+    document.body.append(points);
+
+    let redpoints = document.createElement("div");
+    redpoints.textContent = `Red : ${redpts}`;
+    redpoints.style.fontSize = "30px";
+    redpoints.style.color = "red";
+    redpoints.style.fontWeight = "600";
+    redpoints.style.marginTop = "30px";
+    redpoints.style.textAlign = "center";
+    document.body.append(redpoints);
+
+    let bluepoints = document.createElement("div");
+    bluepoints.textContent = `Blue : ${bluepts}`;
+    bluepoints.style.fontSize = "30px";
+    bluepoints.style.color = "rgb(24, 166, 255)";
+    bluepoints.style.fontWeight = "600";
+    bluepoints.style.marginTop = "30px";
+    bluepoints.style.textAlign = "center";
+    document.body.append(bluepoints);
+    
+    let winner = document.createElement("div");
+    winner.style.fontSize = "30px";
+    winner.style.fontWeight = "600";
+    winner.style.marginTop = "50px";
+    winner.style.color = "aliceblue";
+    winner.style.textAlign = "center";
+    if(redpts>bluepts){
+        winner.textContent = `Red Wins!!`;
+        winner.style.color = "red";
+    }
+    else{
+        winner.textContent = `Blue Wins!!`;
+        winner.style.color = "rgb(24, 166, 255)";
+    }
+    document.body.append(winner);
+
+
+}
+function checkForGameOver(){
+    let dotOk5 = false;
+    for(let k=13;k<=18;k++){
+        for(let node of dots){
+            if(node.classList.contains(`${k}`)){
+                if(!node.classList.contains("red") && !node.classList.contains("blue")){
+                    dotOk5 = false;
+                    break;
+                }
+                else{
+                    dotOk5 = true;
+                }
+            }
+        }
+        if (!dotOk5){
+            break;
+        }
+    }
+    if(dotOk5){
+        gameOver();
     }
 }
 pause.addEventListener("click",()=>{
@@ -322,8 +401,9 @@ pause.addEventListener("click",()=>{
     else if(pause.textContent ==`▶️`){
         pause.textContent = `⏸️`;
         totalTimeCounter = setInterval(()=>{
-            if(totalTime==1){
+            if(totalTime==0){
                 clearInterval(totalTimeCounter);
+                gameOver();
             }
             gameTime.innerHTML=`${totalTime}`;
             totalTime-=1;
@@ -349,8 +429,9 @@ reset.addEventListener("click",()=>{
     clearInterval(playtime);
     totalTime = 600;
     totalTimeCounter = setInterval(()=>{
-        if(totalTime==1){
+        if(totalTime==0){
             clearInterval(totalTimeCounter);
+            gameOver();
         }
         gameTime.innerHTML=`${totalTime}`;
         totalTime-=1;
