@@ -417,6 +417,7 @@ pause.addEventListener("click",()=>{
 })
 reset.addEventListener("click",()=>{
     count = 0;
+    changeTurn();
     dots.forEach((dot)=>{
         if(dot.classList.contains("red")){
             dot.classList.remove("red");
