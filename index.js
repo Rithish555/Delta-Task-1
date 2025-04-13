@@ -96,6 +96,7 @@ nodeEdges.forEach(({width,left,top,deg})=>{
     edgeDivs.style.height=`3px`;
     box.append(edgeDivs);
 })
+
 edgeNums.forEach(({id,left,top}) => {
     let numDivs = document.createElement("div");
     numDivs.textContent= `${id}`
@@ -107,6 +108,7 @@ edgeNums.forEach(({id,left,top}) => {
     numDivs.style.top = `${top}px`;
     box.append(numDivs);
 });
+
 let totalTimeCounter = setInterval(()=>{
     if(totalTime==0){
         clearInterval(totalTimeCounter);
@@ -115,6 +117,14 @@ let totalTimeCounter = setInterval(()=>{
     gameTime.innerHTML=`${totalTime}`;
     totalTime-=1;
 },1000);
+
+reset.addEventListener("click", resets);
+pause.addEventListener("click",paused);
+
+dots.forEach((dot)=>{
+    dot.addEventListener("click",titanMovement)
+})
+
 function playerTimeCounter(){
     if(count%2==0){
         playtime = setInterval(()=>{
@@ -139,6 +149,7 @@ function playerTimeCounter(){
         },1000);
     }
 }
+
 function resetTimerRed(){
     redTimer = 15;
     blueTimer = 15;
@@ -146,6 +157,7 @@ function resetTimerRed(){
     clearInterval(playtime);
     playerTimeCounter();
 }
+
 function resetTimerBlue(){
     redTimer = 15;
     blueTimer = 15;
@@ -153,6 +165,7 @@ function resetTimerBlue(){
     clearInterval(playtime);
     playerTimeCounter();
 }
+
 function changeTurn(){
     if(count % 2 ==0){
         turn.textContent = `Red`;
@@ -163,6 +176,7 @@ function changeTurn(){
         turn.style.color = 'rgb(24, 166, 255)';
     }
 }
+
 function randomMove(){
     let dotOk4 = false;
     if(count<6){
@@ -242,9 +256,7 @@ function randomMove(){
     }
   
 }
-dots.forEach((dot)=>{
-    dot.addEventListener("click",titanMovement)
-})
+
 function titanMovement(dot){
     let dotOk1 = false;
     let dotOk2 = false;
@@ -317,10 +329,11 @@ function titanMovement(dot){
                 break;
             }
         }
-        checkForGameOver();
     }
     updatePoints();
+    checkForGameOver();
 }
+
 function gameOver(){
     document.body.innerHTML = '';
     let gameEndMsg = document.createElement("div");
@@ -377,6 +390,7 @@ function gameOver(){
 
 
 }
+
 function checkForGameOver(){
     let dotOk5 = false;
     for(let k=13;k<=18;k++){
@@ -399,6 +413,7 @@ function checkForGameOver(){
         gameOver();
     }
 }
+
 function updatePoints(){
     let edgeCount=0;
     let redDotOk5 = false;
@@ -477,6 +492,7 @@ function updatePoints(){
    
 
 }
+
 function resets(){
     count = 0;
     changeTurn();
@@ -503,6 +519,7 @@ function resets(){
     resetTimerRed();
 
 }
+
 function paused(){
     if(pause.textContent =='⏸️'){
         pause.textContent = `▶️`;
@@ -535,6 +552,4 @@ function paused(){
         })
     }
 }
-reset.addEventListener("click", resets);
-pause.addEventListener("click",paused);
 
