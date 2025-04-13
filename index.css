@@ -19,6 +19,7 @@ body{
     margin-right: 30px;
     cursor: pointer;
 }
+
 .btnname{
     color:aliceblue;
     font-weight: bold;
@@ -93,6 +94,7 @@ body{
     font-size: xx-large;
     color: rgb(7, 189, 189);
 }
+
 .subpoints1{
     text-decoration: underline;
 }
@@ -131,24 +133,10 @@ body{
     top: 10px;
     transform: translateX(-50%);
 }
-.row7{
-    position: absolute;
-    left: 50%;
-    bottom: 30px;
-    transform: translateX(-50%);
-}
-
 .row2{
     position: absolute;
     left: 50%;
     top: 80px;
-    transform: translateX(-50%);
-}
-
-.row6{
-    position: absolute;
-    left: 50%;
-    bottom: 100px;
     transform: translateX(-50%);
 }
 .row3{
@@ -157,17 +145,36 @@ body{
     top: 160px;
     transform: translateX(-50%);
 }
-
+.row4{
+    position: absolute;
+    left: 50%;
+    top: 250px;
+    transform: translateX(-50%);
+}
+.row4set1{
+    display: flex;
+    margin-inline: 90px;
+}
+.row4set2{
+    display: flex;
+    margin-inline: 90px;
+}
 .row5{
     position: absolute;
     left: 50%;
     bottom: 180px;
     transform: translateX(-50%);
 }
-.row4{
+.row6{
     position: absolute;
     left: 50%;
-    top: 250px;
+    bottom: 100px;
+    transform: translateX(-50%);
+}
+.row7{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
     transform: translateX(-50%);
 }
 
@@ -194,15 +201,6 @@ body{
 }
 .dots7{
     margin-inline: 120px;
-}
-
-.row4set1{
-    display: flex;
-    margin-inline: 90px;
-}
-.row4set2{
-    display: flex;
-    margin-inline: 90px;
 }
 
 .red{
