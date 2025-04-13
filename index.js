@@ -11,6 +11,7 @@ const pause = document.getElementById("pause");
 const reset = document.getElementById("reset");
 const rp = document.getElementById("redpts");
 const bp = document.getElementById("bluepts");
+const pausename = document.getElementById("pausename");
 
 
 /*--------------------------------------------------------------CONSTANTS-----------------------------------------------------------------------------------------------*/
@@ -23,6 +24,8 @@ let count = 0;
 let playtime;
 let redpts=0;
 let bluepts=0;
+rp.textContent = `${redpts}`;
+bp.textContent = `${bluepts}`;
 const nodeEdges=[
     {id:1,width:248,left:30,top:186,deg:124},
     {id:2,width:240,left:255,top:70,deg:0},
@@ -400,6 +403,8 @@ function updatePoints(){
     let edgeCount=0;
     let redDotOk5 = false;
     let blueDotOk5 = false;
+    let redtempCall = false;
+    let bluetempCall = false;
     if(count %2 != 0){
         redpts =0;
         for(let edge of edges){
@@ -423,10 +428,20 @@ function updatePoints(){
             if(redDotOk5){
                 redpts = redpts + points[edgeCount];
                 rp.textContent = `${redpts}`;
+                redtempCall = true;
+            }
+            else{
+                redtempCall = redtempCall || false;
             }
             edgeCount++;
         }
+        if(!redtempCall){
+            console.log("hello");
+            rp.textContent = "0";
+        }
     }
+
+
     else{
         bluepts = 0;
         for(let edge of edges){
@@ -450,40 +465,19 @@ function updatePoints(){
             if(blueDotOk5){
                 bluepts = bluepts + points[edgeCount];
                 bp.textContent = `${bluepts}`;
+                bluetempCall = true;
             }
             edgeCount++;
+        }
+        if(!bluetempCall){
+            console.log("hello");
+            bp.textContent = "0";
         }
     }
    
 
 }
-pause.addEventListener("click",()=>{
-    if(pause.textContent =='⏸️'){
-        pause.textContent = `▶️`;
-        clearInterval(playtime);
-        clearInterval(totalTimeCounter);
-        dots.forEach((dot)=>{
-            dot.removeEventListener("click",titanMovement);
-        })
-    }
-    else if(pause.textContent ==`▶️`){
-        pause.textContent = `⏸️`;
-        totalTimeCounter = setInterval(()=>{
-            if(totalTime==0){
-                clearInterval(totalTimeCounter);
-                gameOver();
-            }
-            gameTime.innerHTML=`${totalTime}`;
-            totalTime-=1;
-        },1000);
-        playerTimeCounter();
-        
-        dots.forEach((dot)=>{
-            dot.addEventListener("click",titanMovement)
-        })
-    }
-})
-reset.addEventListener("click",()=>{
+function resets(){
     count = 0;
     changeTurn();
     dots.forEach((dot)=>{
@@ -508,5 +502,39 @@ reset.addEventListener("click",()=>{
     resetTimerBlue();
     resetTimerRed();
 
-})
+}
+function paused(){
+    if(pause.textContent =='⏸️'){
+        pause.textContent = `▶️`;
+        reset.removeEventListener("click",resets);
+        pause.title="Play";
+        pausename.textContent = "Play";
+        clearInterval(playtime);
+        clearInterval(totalTimeCounter);
+        dots.forEach((dot)=>{
+            dot.removeEventListener("click",titanMovement);
+        })
+    }
+    else if(pause.textContent ==`▶️`){
+        pause.textContent = `⏸️`;
+        pause.title = "Pause";
+        pausename.textContent = "Pause";
+        reset.addEventListener("click",resets);
+        totalTimeCounter = setInterval(()=>{
+            if(totalTime==0){
+                clearInterval(totalTimeCounter);
+                gameOver();
+            }
+            gameTime.innerHTML=`${totalTime}`;
+            totalTime-=1;
+        },1000);
+        playerTimeCounter();
+        
+        dots.forEach((dot)=>{
+            dot.addEventListener("click",titanMovement)
+        })
+    }
+}
+reset.addEventListener("click", resets);
+pause.addEventListener("click",paused);
 

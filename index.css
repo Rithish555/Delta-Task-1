@@ -19,6 +19,12 @@ body{
     margin-right: 30px;
     cursor: pointer;
 }
+.btnname{
+    color:aliceblue;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 15px;
+}
 
 .gamename{
     text-align: center;
@@ -85,6 +91,9 @@ body{
 .subpoints{
     margin:40px 0;
     font-size: xx-large;
+    color: rgb(7, 189, 189);
+}
+.subpoints1{
     text-decoration: underline;
 }
 
