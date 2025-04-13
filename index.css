@@ -70,7 +70,7 @@ body{
     height: 600px;
     width: 750px;
     margin-bottom: 60px;
-    margin-inline: 100px;
+    margin-inline: 60px;
     display: flex;
     flex-direction: column;
     position: relative;

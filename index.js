@@ -9,6 +9,8 @@ const bluePlayerTime = document.getElementById("blueplayertime");
 const turn = document.getElementById("turn");
 const pause = document.getElementById("pause");
 const reset = document.getElementById("reset");
+const rp = document.getElementById("redpts");
+const bp = document.getElementById("bluepts");
 
 
 /*--------------------------------------------------------------CONSTANTS-----------------------------------------------------------------------------------------------*/
@@ -19,6 +21,8 @@ let blueTimer=15;
 let totalTime = 600;
 let count = 0;
 let playtime;
+let redpts=0;
+let bluepts=0;
 const nodeEdges=[
     {id:1,width:248,left:30,top:186,deg:124},
     {id:2,width:240,left:255,top:70,deg:0},
@@ -72,10 +76,11 @@ const edgeNums = [
     {id:1,left:280,top:420},
 ]
 const connectingEdges = [[2,6,7],[1,3],[2,4,9],[3,5],[4,6,11],[1,5],[1,8,12],[7,9,14],[3,8,10],[9,11,16],[5,10,12],[7,11,18],[14,18],[8,13,15],[14,16],[10,15,17],[16,18],[12,13,17]];
+const points = [2,1,2,3,2,2,6,6,5,6,4,6,7,9,7,7,9,8,1,1,1,1,1,1];
+const edges = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,1],[7,8],[8,9],[9,10],[10,11],[11,12],[12,7],[13,14],[14,15],[15,16],[16,17],[17,18],[18,13],[1,7],[3,9],[5,11],[8,14],[10,16],[12,18]];
 
 
 /*--------------------------------------------------------------FUNCTIONS------------------------------------------------------------------------------------------------*/
-
 
 nodeEdges.forEach(({width,left,top,deg})=>{
     let edgeDivs = document.createElement("div");
@@ -234,6 +239,9 @@ function randomMove(){
     }
   
 }
+dots.forEach((dot)=>{
+    dot.addEventListener("click",titanMovement)
+})
 function titanMovement(dot){
     let dotOk1 = false;
     let dotOk2 = false;
@@ -308,10 +316,9 @@ function titanMovement(dot){
         }
         checkForGameOver();
     }
+    updatePoints();
 }
 function gameOver(){
-    let redpts=1;
-    let bluepts=10;
     document.body.innerHTML = '';
     let gameEndMsg = document.createElement("div");
     gameEndMsg.textContent = "Game Over!";
@@ -389,6 +396,67 @@ function checkForGameOver(){
         gameOver();
     }
 }
+function updatePoints(){
+    let edgeCount=0;
+    let redDotOk5 = false;
+    let blueDotOk5 = false;
+    if(count %2 != 0){
+        redpts =0;
+        for(let edge of edges){
+            redDotOk5 = true;
+            for(let node of edge){
+                for(let dot of dots){
+                    if(dot.classList.contains(`${node}`)){
+                        if( dot.classList.contains("red")){
+                            redDotOk5 = redDotOk5 && true;
+                            break;
+                        }
+                        else{
+                            redDotOk5 = redDotOk5 && false;
+                            break;
+                        }
+                        
+                    }
+                    
+                }
+            }
+            if(redDotOk5){
+                redpts = redpts + points[edgeCount];
+                rp.textContent = `${redpts}`;
+            }
+            edgeCount++;
+        }
+    }
+    else{
+        bluepts = 0;
+        for(let edge of edges){
+            blueDotOk5 = true;
+            for(let node of edge){
+                for(let dot of dots){
+                    if(dot.classList.contains(`${node}`)){
+                        if( dot.classList.contains("blue")){
+                            blueDotOk5 = blueDotOk5 && true;
+                            break;
+                        }
+                        else{
+                            blueDotOk5 = blueDotOk5 && false;
+                            break;
+                        }
+                        
+                    }
+                    
+                }
+            }
+            if(blueDotOk5){
+                bluepts = bluepts + points[edgeCount];
+                bp.textContent = `${bluepts}`;
+            }
+            edgeCount++;
+        }
+    }
+   
+
+}
 pause.addEventListener("click",()=>{
     if(pause.textContent =='⏸️'){
         pause.textContent = `▶️`;
@@ -441,6 +509,4 @@ reset.addEventListener("click",()=>{
     resetTimerRed();
 
 })
-dots.forEach((dot)=>{
-    dot.addEventListener("click",titanMovement)
-})
+
