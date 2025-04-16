@@ -5,7 +5,6 @@
 
 body{
     background-color: rgb(16, 16, 78);
-    position: relative;
 }
 
 .box{
@@ -13,7 +12,7 @@ body{
     grid-template-columns: repeat(15,1fr);
     grid-template-rows: repeat(9,1fr);
     width: 90vw;
-    height: 90vh;
+    height: 100vh;
     gap: 0.5vw;
     background-color: rgba(0, 0, 0, 0.553);
     max-height: 700px;
@@ -74,6 +73,7 @@ body{
     color: black;
     align-self: center;
     justify-self: center;
+    z-index: 2;
 }
 
 .dots:hover{
@@ -204,15 +204,22 @@ body{
     margin-left: 480px;
     margin-right: 280px;
 }
-@media screen and (max-width:1020px) {
+@media screen and (max-width:1024px) {
     .gamename{
-        margin-right: 200px;
+        margin-right: 190px;
         margin-left: 350px;
     }
+    .timers{
+        margin-left: 20px;
+    }
+    .subpoints{
+        margin-right: 20px;
+    }
 }
-@media screen and (max-width:768px) {
+@media screen and (max-width:850px) {
     .header{
         margin-top: 20px;
+        margin-bottom: 40px;
     }
     .gamename{
         margin-top: 0;
@@ -237,10 +244,10 @@ body{
     .box{
         max-width: none;
         max-height: none;
-        width: 70vw;
-        height: 60vh;
+        width: 80vw;
+        height: 95vh;
         margin-inline: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 40px;
     }
     .dots{
         height: 20px;
@@ -253,6 +260,7 @@ body{
     }
     .timers{
         display: flex;
+        margin-bottom: 30px;
     }
     .timersbox{
         margin-inline: 15px;
@@ -267,10 +275,16 @@ body{
         font-size: larger;
     }
 }
-@media screen and (max-width:550px) {
-    /* .header{
-        flex-wrap: wrap;
-    } */
+@media screen and (max-width:660px) {
+    .box{
+        height: 70vh;
+    }
+    
+}
+@media screen and (max-width:540px) {
+    .header{
+        margin-bottom: 50px;
+    } 
     .gamename{
         margin-right: 20px;
         margin-left: 100px;
@@ -285,10 +299,11 @@ body{
     .box{
         max-width: none;
         max-height: none;
-        width: 90vw;
-        height: 60vh;
+        width: 70vw;
+        height: 50vh;
         margin-inline: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
+        box-shadow: none;
     }
     .dots{
         height: 15px;
@@ -300,6 +315,7 @@ body{
     }
     .timers{
         display: flex;
+        margin-bottom: 50px;
     }
     .timersbox{
         margin-inline: 2px;
@@ -313,12 +329,23 @@ body{
         font-size: medium;
     }
 }
-@media screen and (max-width :374px) {
+@media screen and (max-width :376px) {
     .gamename{
         margin-right: 20px;
-        margin-left: 10px;
+        margin-left: 40px;
     }
-    
+    .box{
+        width: 90vw;
+        box-shadow: none;
+    }
+}
+@media (orientation:portrait) {
+    .box{
+        height: 45vh;
+    }
+    .nums{
+        font-size: xx-small;
+    }
 }
 .red{
     background-color: red;
