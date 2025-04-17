@@ -216,7 +216,7 @@ body{
         margin-right: 20px;
     }
 }
-@media screen and (max-width:850px) {
+@media screen and (max-width:890px) {
     .header{
         margin-top: 20px;
         margin-bottom: 40px;
@@ -245,7 +245,7 @@ body{
         max-width: none;
         max-height: none;
         width: 80vw;
-        height: 95vh;
+        height: 85vh;
         margin-inline: 10px;
         margin-bottom: 40px;
     }
@@ -277,11 +277,11 @@ body{
 }
 @media screen and (max-width:660px) {
     .box{
-        height: 70vh;
+        height: 75vh;
     }
     
 }
-@media screen and (max-width:540px) {
+@media screen and (max-width:560px) {
     .header{
         margin-bottom: 50px;
     } 
@@ -299,8 +299,8 @@ body{
     .box{
         max-width: none;
         max-height: none;
-        width: 70vw;
-        height: 50vh;
+        width: 90vw;
+        height: 60vh;
         margin-inline: 10px;
         margin-bottom: 30px;
         box-shadow: none;
@@ -328,23 +328,31 @@ body{
     #turn{
         font-size: medium;
     }
+    .number{
+        font-size: x-small;
+    }
 }
-@media screen and (max-width :376px) {
+@media screen and (max-width:376px) {
     .gamename{
         margin-right: 20px;
         margin-left: 40px;
     }
     .box{
         width: 90vw;
+        height: 50vh;
         box-shadow: none;
     }
 }
 @media (orientation:portrait) {
     .box{
-        height: 45vh;
+        width: 90vw;
+        height: 50vh;
     }
     .nums{
         font-size: xx-small;
+    }
+    .number{
+        font-size: 7px;
     }
 }
 .red{

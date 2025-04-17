@@ -89,6 +89,7 @@ const edges = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,1],[7,8],[8,9],[9,10],[10,11],[1
 edgeNums.forEach(({id,row,column,justify,align}) =>{
     let numDivs = document.createElement("div");
     numDivs.textContent= `${id}`
+    numDivs.classList= `number`;
     numDivs.style.gridRow = `${row}`;
     numDivs.style.gridColumn = `${column}`;
     numDivs.style.justifySelf = `${justify}`;
@@ -98,7 +99,7 @@ edgeNums.forEach(({id,row,column,justify,align}) =>{
 });
 edgeLines.forEach(({row,column,origin,rotate,translate})=>{
     let edgeDivs = document.createElement("div");
-    edgeDivs.style.height = '3px';
+    edgeDivs.style.height = '2px';
     edgeDivs.style.alignSelf = 'center';
     edgeDivs.style.zIndex = '1';
     edgeDivs.style.backgroundColor = 'aliceblue';
