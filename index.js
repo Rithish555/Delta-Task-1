@@ -58,7 +58,7 @@ const edgeLines = [
     {id:3,row:5,column:'9/15',origin:'right',rotate:54,translate:10},
     {id:4,row:8,column:'5/11',origin:'right',rotate:125,translate:-10},
     {id:5,row:8,column:'5/12',origin:'left',rotate:0,translate:0},
-    {id:6,row:8,column:'5/11',origin:'left',rotate:-123,translate:10},
+    {id:6,row:8,column:'5/10',origin:'left',rotate:-123,translate:10},
     {id:7,row:5,column:'4/8',origin:'left',rotate:-53,translate:5},
     {id:8,row:3,column:'6/11',origin:'right',rotate:0,translate:0},
     {id:9,row:5,column:'9/13',origin:'right',rotate:55,translate:15},
