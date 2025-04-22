@@ -494,6 +494,10 @@ function updatePoints(){
 
 function resets(){
     count = 0;
+    redpts = 0;
+    bluepts = 0;
+    rp.textContent = '0';
+    bp.textContent = '0';
     changeTurn();
     dots.forEach((dot)=>{
         if(dot.classList.contains("red")){
