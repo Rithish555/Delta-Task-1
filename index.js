@@ -527,8 +527,9 @@ function paused(){
     if(pause.textContent =='⏸️'){
         pause.textContent = `▶️`;
         reset.removeEventListener("click",resets);
-        pause.title="Play";
-        pausename.textContent = "Play";
+        pause.title="Resume";
+        pausename.textContent = "Resume";
+        reset.style.cursor = "not-allowed";
         clearInterval(playtime);
         clearInterval(totalTimeCounter);
         dots.forEach((dot)=>{
@@ -539,6 +540,7 @@ function paused(){
         pause.textContent = `⏸️`;
         pause.title = "Pause";
         pausename.textContent = "Pause";
+        reset.style.cursor = "pointer";
         reset.addEventListener("click",resets);
         totalTimeCounter = setInterval(()=>{
             if(totalTime==0){
